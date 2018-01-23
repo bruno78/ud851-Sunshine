@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     // COMPLETED (23) Create a private string array called mWeatherData
 
-    // TODO (47) Create the default constructor (we will pass in parameters in a later lesson)
+    // COMPLETED (47) Create the default constructor (we will pass in parameters in a later lesson)
 
     // COMPLETED (16) Create a class within ForecastAdapter called ForecastAdapterViewHolder
     // COMPLETED (17) Extend RecyclerView.ViewHolder
@@ -69,22 +69,22 @@ public class MainActivity extends AppCompatActivity {
 
     // COMPLETED (19) Create a constructor for this class that accepts a View as a parameter
     // COMPLETED (20) Call super(view) within the constructor for ForecastAdapterViewHolder
-    // TODO (21) Using view.findViewById, get a reference to this layout's TextView and save it to mWeatherTextView
+    // COMPLETED (21) Using view.findViewById, get a reference to this layout's TextView and save it to mWeatherTextView
     // Within ForecastAdapterViewHolder ///////////////////////////////////////////////////////////
 
 
     // COMPLETED (24) Override onCreateViewHolder
     // COMPLETED (25) Within onCreateViewHolder, inflate the list item xml into a view
-    // TODO (26) Within onCreateViewHolder, return a new ForecastAdapterViewHolder with the above view passed in as a parameter
+    // COMPLETED (26) Within onCreateViewHolder, return a new ForecastAdapterViewHolder with the above view passed in as a parameter
 
-    // TODO (27) Override onBindViewHolder
-    // TODO (28) Set the text of the TextView to the weather for this list item's position
+    // COMPLETED (27) Override onBindViewHolder
+    // COMPLETED (28) Set the text of the TextView to the weather for this list item's position
 
-    // TODO (29) Override getItemCount
-    // TODO (30) Return 0 if mWeatherData is null, or the size of mWeatherData if it is not null
+    // COMPLETED (29) Override getItemCount
+    // COMPLETED (30) Return 0 if mWeatherData is null, or the size of mWeatherData if it is not null
 
-    // TODO (31) Create a setWeatherData method that saves the weatherData to mWeatherData
-    // TODO (32) After you save mWeatherData, call notifyDataSetChanged
+    // COMPLETED (31) Create a setWeatherData method that saves the weatherData to mWeatherData
+    // COMPLETED (32) After you save mWeatherData, call notifyDataSetChanged
     // Within ForecastAdapter.java /////////////////////////////////////////////////////////////////
 
 
@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
             mLoadingIndicator.setVisibility(View.INVISIBLE);
             if (weatherData != null) {
                 showWeatherDataView();
-                // TODO (45) Instead of iterating through every string, use mForecastAdapter.setWeatherData and pass in the weather data
+                // COMPLETED (45) Instead of iterating through every string, use mForecastAdapter.setWeatherData and pass in the weather data
                 mForecastAdapter.setWeatherData(weatherData);
             } else {
                 showErrorMessage();
@@ -245,8 +245,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_refresh) {
-            // TODO (46) Instead of setting the text to "", set the adapter to null before refreshing
-            mForecastAdapter = null;
+            // COMPLETED (46) Instead of setting the text to "", set the adapter to null before refreshing
+            mForecastAdapter.setWeatherData(null);
             loadWeatherData();
             return true;
         }

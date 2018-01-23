@@ -33,9 +33,15 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         return new ForecastAdapterViewHolder(view);
     }
 
+    /**
+     *  Sets the weather for this day
+     *
+     * @param viewHolder where the weather data text will be set
+     * @param position position where the weather data text will be set
+     */
     @Override
-    public void onBindViewHolder(ForecastAdapterViewHolder holder, int position) {
-        holder.mWeatherTextView.setText(mWeatherData[position]);
+    public void onBindViewHolder(ForecastAdapterViewHolder viewHolder, int position) {
+        viewHolder.mWeatherTextView.setText(mWeatherData[position]);
     }
 
     @Override
@@ -48,6 +54,9 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
         notifyDataSetChanged();
     }
 
+    /**
+     * Cache of the children views for a forecast list item.
+     */
     public class ForecastAdapterViewHolder extends RecyclerView.ViewHolder {
 
         public final TextView mWeatherTextView;
