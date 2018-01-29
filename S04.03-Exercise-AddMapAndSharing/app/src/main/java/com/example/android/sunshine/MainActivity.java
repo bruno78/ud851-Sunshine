@@ -155,6 +155,28 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
         mErrorMessageDisplay.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * This method will request a specific location on the map
+     */
+    private void showLocation(){
+        String locationAddress = "1600 Ampitheatre Parkway, CA";
+        String mime = "plain/text";
+
+        Uri geoLocation = new Uri.Builder()
+                .scheme("geo")
+                .path("0,0")
+                .query(locationAddress)
+                .build();
+
+        Intent shareLocationIntent = new Intent(Intent.ACTION_VIEW)
+                .setData(geoLocation);
+
+        if(shareLocationIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(shareLocationIntent);
+        }
+    }
+
+
     public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
 
         @Override
@@ -222,6 +244,10 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
         }
 
         // TODO (2) Launch the map when the map menu item is clicked
+        if (id == R.id.action_open_map) {
+            showLocation();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
