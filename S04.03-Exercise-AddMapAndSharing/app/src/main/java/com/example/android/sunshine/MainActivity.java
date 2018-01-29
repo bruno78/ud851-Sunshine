@@ -243,7 +243,7 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
             return true;
         }
 
-        // TODO (2) Launch the map when the map menu item is clicked
+        // COMPLETED (2) Launch the map when the map menu item is clicked
         if (id == R.id.action_open_map) {
             showLocation();
             return true;
