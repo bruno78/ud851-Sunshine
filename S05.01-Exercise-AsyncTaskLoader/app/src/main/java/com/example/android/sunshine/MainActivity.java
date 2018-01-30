@@ -44,7 +44,7 @@ import java.net.URL;
 
 // COMPLETED (1) Implement the proper LoaderCallbacks interface and the methods of that interface
 public class MainActivity extends AppCompatActivity implements ForecastAdapterOnClickHandler,
-                                                               LoaderManager.LoaderCallbacks {
+                                                               LoaderManager.LoaderCallbacks<String[]> {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -108,6 +108,8 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
         // COMPLETED (7) Remove the code for the AsyncTask and initialize the AsyncTaskLoader
         /* Once all of our views are setup, we can load the weather data. */
 
+        getSupportLoaderManager().initLoader(WEATHER_LOADER_ID, null, MainActivity.this);
+
     }
 
 
@@ -165,8 +167,15 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
     }
 
     @Override
-    public void onLoadFinished(Loader loader, Object data) {
-
+    public void onLoadFinished(Loader<String[]> loader, String[] data) {
+        mLoadingIndicator.setVisibility(View.INVISIBLE);
+        mForecastAdapter.setWeatherData(data);
+        if (data == null) {
+            showErrorMessage();
+        }
+        else {
+            showWeatherDataView();
+        }
     }
 
     @Override
