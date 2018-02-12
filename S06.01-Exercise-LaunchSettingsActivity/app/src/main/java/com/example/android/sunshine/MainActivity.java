@@ -280,6 +280,14 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     /**
+     * This helper method is called when the menu settings is clicked.
+     */
+    private void openSettings() {
+        Intent startSettingActivity = new Intent(this, SettingsActivity.class);
+        startActivity(startSettingActivity);
+    }
+
+    /**
      * This method is for responding to clicks from our list.
      *
      * @param weatherForDay String describing weather details for a particular day
@@ -346,12 +354,16 @@ public class MainActivity extends AppCompatActivity implements
             return true;
         }
 
-        // TODO (1) Add new Activity called SettingsActivity using Android Studio wizard
+        // COMPLETED (1) Add new Activity called SettingsActivity using Android Studio wizard
         // Do step 2 in SettingsActivity
-        // TODO (2) Set setDisplayHomeAsUpEnabled to true on the support ActionBar
+        // COMPLETED (2) Set setDisplayHomeAsUpEnabled to true on the support ActionBar
 
-        // TODO (6) Launch SettingsActivity when the Settings option is clicked
-
+        // COMPLETED (6) Launch SettingsActivity when the Settings option is clicked
+        if (id == R.id.action_settings) {
+            // Open the Settings Activity
+            openSettings();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 }
