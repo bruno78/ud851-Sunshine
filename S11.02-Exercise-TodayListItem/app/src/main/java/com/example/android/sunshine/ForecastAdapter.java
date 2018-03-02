@@ -120,7 +120,8 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
 
         View view = LayoutInflater
                 .from(mContext)
-                .inflate(R.layout.forecast_list_item, viewGroup, false);
+                .inflate(layoutForecastItemId, viewGroup, false);
+        view.setFocusable(true);
 
         return new ForecastAdapterViewHolder(view);
     }
@@ -157,7 +158,7 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
             case VIEW_TYPE_FUTURE_DAY_ID:
                 weatherImageId = SunshineWeatherUtils
                         .getSmallArtResourceIdForWeatherCondition(weatherId);
-
+                break;
                 // COMPLETED (17) Otherwise, throw an IllegalArgumentException
             default:
                 throw new IllegalArgumentException("Invalid view type, value of " + viewType);
